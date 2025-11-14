@@ -15,3 +15,13 @@ python
 >>> if torch.cuda.is_available():
 ...     print("PyTorch 检测到的 CUDA 版本:", torch.version.cuda)
 ...
+
+# 确保在仓库根目录
+cd /workspace 
+
+# 1. 将临时大文件添加到 .gitignore 并移除 Git 跟踪
+echo "ComfyUI/core.*" >> /workspace/.gitignore
+git rm --cached ComfyUI/core.23303 ComfyUI/core.24153
+
+# 2. 确认所有配置（包括 LFS 跟踪的 .gitattributes 和 .gitignore）都已暂存
+git add .
